@@ -1,0 +1,67 @@
+
+{%block content%}
+{%include 'adminbaner.html'%}
+<br><br>
+<style >
+ th{
+      border: 1px solid blue;
+  }
+
+</style>
+<div class="container">
+  <table style=" border : 1px solid blue;border-collapse:collapse;">
+    <tr>
+      <p class="title">
+<th width="200"><strong> نام و نام خانوادگی </strong></th>
+<th width="100"><strong> روز </strong></th>
+<th width="200"><strong> ماه </strong></th>
+<th width="100"><strong>سال </strong></th>
+<th width="200"><strong> توضیحات </strong></th>
+<th width="100"><strong> تاخیر </strong></th>
+<th width="100"><strong>  </strong></th>
+</p>
+</tr>
+
+{% for student,absentlist in data %}
+<tr>
+
+                    {%for absentst in absentlist%}
+
+                    <table style=" border : 1px solid blue;border-collapse:collapse;">
+                      <tr>
+
+                        <td width="200" style="border: 1px solid blue;">
+
+                          {{student.fullname}} <br></td>
+
+
+                      <td width="100" style="border: 1px solid blue;">
+
+                        {{absentst.day}} <br></td>
+                        <td width="200" style="border: 1px solid blue;">
+                             {{absentst.month}}</td>
+                             <td width="100" style="border: 1px solid blue;">
+                            {{absentst.year}} </td>
+                            <td width="200" style="border: 1px solid blue;">
+                          {{absentst.description}}<br></td>
+                          <td width="100" style="border: 1px solid blue;">
+                          {{absentst.delay}}</td>
+                          <td width="100">
+                            <a class="highlight" href="{%url 'deleteabsent' absentst.id%}">حذف غیبت</a>
+                          </td>
+
+
+
+                            </tr>
+                            </table>
+                {%endfor%}
+
+
+
+    </tr>
+    {%endfor%}
+
+        </table>
+  </div>
+<br><br><br><br><br>
+{%endblock%}

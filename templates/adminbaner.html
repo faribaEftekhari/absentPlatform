@@ -1,0 +1,56 @@
+{%extends 'base.html'%}
+{%block content%}
+{%if user.is_authenticated%}
+
+
+
+<table>
+  <tr>
+
+    <td>
+
+      <nav role="navigation">
+
+      <ul>
+        <li aria-haspopup="true">
+          <a  href="{% url 'afterlogin'%}">لیست کامل غایبین  </a>
+        </li>
+
+        <li aria-haspopup="true">لیست غایبین بر اساس ماه
+          <ul class="dropdown" aria-label="submenu">
+            <li>  <a class="highlight" href="{%url 'absentmonth' 'خرداد'%}"> غایبین خرداد   </a>
+            </li>
+            <li>  <a class="highlight" href="{%url 'absentmonth' 'اردیبهشت'%}">غایبین اردیبهشت   </a>
+            </li>
+            <li>  <a class="highlight" href="{%url 'absentmonth' 'فروردین'%}">غایبین فروردین   </a>
+            </li>
+            <li>  <a class="highlight" href="{%url 'absentmonth' 'اسفند'%}"> غایبین اسفند </a>
+            </li>
+            <li>  <a class="highlight" href="{%url 'absentmonth' 'بهمن'%}">غایبین بهمن   </a>
+            </li>
+            <li>  <a class="highlight" href="{%url 'absentmonth' 'دی'%}"> غایبین دی   </a>
+            </li>
+            <li>  <a class="highlight" href="{%url 'absentmonth' 'آذر'%}">غایبین آذر    </a>
+            </li>
+            <li>  <a class="highlight" href="{%url 'absentmonth' 'آبان'%}"> غایبین آبان   </a>
+            </li>
+            <li>  <a  href="{%url 'absentmonth' 'مهر'%}">  غایبین مهر   </a>
+            </li>
+
+
+
+
+
+
+
+          </ul>
+        </li>
+      </ul>
+      </nav>
+    </td>
+
+    </tr>
+    </table>
+
+  {%endif%}
+{%endblock%}

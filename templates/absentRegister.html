@@ -1,0 +1,39 @@
+{%extends 'base.html'%}
+{%load widget_tweaks%}
+{%block content%}
+<center>
+  
+<form class="site-form" method="POST" action="{% url 'regAbsent'%}">
+
+<table>
+  <tr>
+    <td></td>
+    <td>
+      {% render_field absentform.day class="form-control" %}
+        {% render_field absentform.month class="form-control"  %}
+          {% render_field absentform.year class="form-control"  %}
+    </td>
+  </tr>
+  <tr>
+    <td>توضیحات:</td>
+    <td>
+       {% render_field absentform.description class="form-control" placeholder="توضیحات" %}
+    </td>
+  </tr>
+  <tr>
+    <td >غیبت یا تاخیر:</td>
+    <td>
+        {% render_field absentform.delay class="form-control"   %}
+    دانش آموز:
+
+          {%render_field absentform.studentId class="form-control" name="names" %}
+    </td>
+  </tr>
+</table>
+{%csrf_token%}
+<input type="submit" name="regAbsent" value=" ثبت غیبت" >
+
+</form>
+
+</center>
+{%endblock%}

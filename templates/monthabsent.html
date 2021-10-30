@@ -1,0 +1,69 @@
+{%block content%}
+
+{%include 'adminbaner.html'%}
+<center>
+  <br><br>
+  <style >
+   th{
+        border: 1px solid blue;
+    }
+
+  </style>
+  <div class="container">
+    <table style=" border : 1px solid blue;border-collapse:collapse;">
+      <tr>
+
+        <p class="title">
+
+  <th width="200"><strong> نام و نام خانوادگی </strong></th>
+  <th width="100"><strong> روز </strong></th>
+  <th width="200"><strong> ماه </strong></th>
+  <th width="100"><strong>سال </strong></th>
+  <th width="200"><strong> توضیحات </strong></th>
+  <th width="100"><strong> تاخیر </strong></th>
+  <th width="100"><strong>  </strong></th>
+  </p>
+  </tr>
+
+  {% for students,absentlist in data %}
+  <tr>
+
+                      {%for st in students%}
+
+                      <table style=" border : 1px solid blue;border-collapse:collapse;">
+                        <tr>
+
+                          <td width="200" style="border: 1px solid blue;">
+
+                            {{st.fullname}} <br></td>
+
+
+                        <td width="100" style="border: 1px solid blue;">
+
+                          {{absentlist.day}} <br></td>
+                          <td width="200" style="border: 1px solid blue;">
+                               {{absentlist.month}}</td>
+                               <td width="100" style="border: 1px solid blue;">
+                              {{absentlist.year}} </td>
+                              <td width="200" style="border: 1px solid blue;">
+                            {{absentlist.description}}<br></td>
+                            <td width="100" style="border: 1px solid blue;">
+                            {{absentlist.delay}}</td>
+                            <td width="100">
+                              <a class="highlight" href="{%url 'deleteabsent' absentlist.id%}">حذف غیبت</a>
+                            </td>
+                              </tr>
+                              </table>
+                  {%endfor%}
+
+
+
+      </tr>
+      {%endfor%}
+
+          </table>
+    </div>
+  <br><br><br><br><br>
+  </center>
+
+{%endblock%}

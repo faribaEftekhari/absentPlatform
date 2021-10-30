@@ -1,0 +1,84 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en" >
+  <head class="main-header">
+    <meta name="description" content="سامانه ثبت غیبت پایه دوازدهم تصویرسازی">
+    <meta charset="utf-8">
+
+    <title>
+      هنرستان ولایت|ناحیه یک البرز|سامانه ثبت غیبت
+      {% block title %}
+      {%endblock%}
+    </title>
+    <link rel="stylesheet" href="{%static 'style.css'%}">
+    <script type="text/javascript" src="{%static 'pdate.min.js'%}"></script>
+  </head>
+  <body>
+    <header>
+
+
+    <div class="landing-layer home-page" style="background-color:lightblue"; >
+      <div class="container">
+        <div class="main-header">
+          <center>
+            <table>
+
+              <tr>
+                <td>
+                  <a href="{% url 'home' %}" class=" animated fadeInDown">
+                      <img src="/static/home.png" alt="" width="154" height="73"  style="mix-blend-mode: multiply;">
+                  </a>
+                </td>
+                   <td>
+
+                  <div class="landing-content">
+                    <div class="cooperation">
+                  سامانه ثبت غیبت پایه دوازدهم تصویرسازی
+                    <span>هنرستان ولایت</span>
+                    </div>
+                  </div>
+
+              </td>
+              <td>
+                <nav>
+                  <ul>
+                    {%if user.is_authenticated%}
+                      <li>
+                      <form class="logout_link" action="{% url 'logout' %}" method="post">
+                        {%csrf_token%}
+                        {{user.first_name}}
+                        <button type="submit" name="logoutb">خروج</button>
+                      </form>
+                    </li>
+                    {%endif%}
+                    </ul>
+                  </nav>
+
+              </td>
+              </tr>
+              <tr>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td>
+        <nav><ul>
+        <li>
+        <span id="pdate1">تاریخ شمسی اینجا نمایش داده می‌شود</span>
+        <script type="text/javascript">
+          AMIB.showPDate( 'pdate1' );
+        </script>
+      </li></ul></nav>
+      </td>
+              </tr>
+            </table>
+          </center>
+
+        </div>
+      </div>
+    </div>
+    </header>
+    {%block content%}
+        {%endblock%}
+
+  </body>
+</html>
